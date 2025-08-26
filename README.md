@@ -127,20 +127,20 @@ The server will start on `http://localhost:3000`
 curl -X POST http://localhost:3000/shorturls \
   -H "Content-Type: application/json" \
   -d '{
-    "url": "https://www.google.com/search?q=very+long+search+query+with+many+parameters",
+    "url": "https://www.google.com/",
     "validity": 60,
-    "shortcode": "mycustom"
+    "shortcode": "unique"
   }'
 ```
 
 **Get statistics:**
 ```bash
-curl http://localhost:3000/shorturls/mycustom
+curl http://localhost:3000/shorturls/unique
 ```
 
 **Access short URL (redirects):**
 ```bash
-curl -L http://localhost:3000/mycustom
+curl -L http://localhost:3000/unique
 ```
 
 ### Using JavaScript/Fetch
@@ -153,7 +153,7 @@ const response = await fetch('http://localhost:3000/shorturls', {
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    url: 'https://example.com/very-long-url',
+    url: 'https://youtube.com/',
     validity: 30,
     shortcode: 'custom123'
   })
@@ -199,22 +199,6 @@ The service returns appropriate HTTP status codes:
 npm test
 ```
 
-### Project Structure
-```
-├── middleware/
-│   └── logging.js          # Custom logging middleware
-├── routes/
-│   └── urlRoutes.js        # API route handlers
-├── services/
-│   └── urlService.js       # Business logic
-├── utils/
-│   └── shortcodeGenerator.js # Utility functions
-├── logs/                   # Log files (auto-generated)
-├── server.js              # Main application file
-├── package.json           # Dependencies and scripts
-└── README.md              # This file
-```
-
 ## Production Considerations
 
 For production deployment, consider:
@@ -226,15 +210,3 @@ For production deployment, consider:
 5. **SSL/TLS**: Use HTTPS in production
 6. **Environment Variables**: Configure all environment-specific settings
 
-## License
-
-MIT License
-
-## Support
-
-For support and questions, contact:
-- **Company**: Afford Medical Technologies Private Limited
-- **Address**: B 230 2nd Main Road, Sainikpuri, Hyderabad-500094, Telangana, INDIA
-- **Phone**: 91-40-27117068/27116133
-- **Web**: www.affordmed.com
-- **Email**: contact@affordmed.com
